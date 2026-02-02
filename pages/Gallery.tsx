@@ -1,4 +1,6 @@
+
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { GALLERY } from '../constants.tsx';
 
 const Gallery: React.FC = () => {
@@ -71,12 +73,12 @@ const Gallery: React.FC = () => {
           <p className="text-lg text-slate-600 mb-10">
             Our expert team is ready to provide the same high level of quality for your home or business.
           </p>
-          <a
-            href="#/contact"
+          <Link
+            to="/contact"
             className="inline-block bg-blue-600 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-blue-700 transition-all shadow-xl"
           >
             Book Your Cleaning Now
-          </a>
+          </Link>
         </div>
       </section>
     </div>

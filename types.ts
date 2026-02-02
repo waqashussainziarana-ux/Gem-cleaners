@@ -1,9 +1,11 @@
 
+import { ReactNode } from 'react';
+
 export interface Service {
   id: string;
   title: string;
   description: string;
-  icon: string;
+  icon: ReactNode;
 }
 
 export interface GalleryImage {
