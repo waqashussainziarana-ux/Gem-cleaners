@@ -91,9 +91,9 @@ const Services: React.FC = () => {
             </div>
             <div className="flex-1 w-full z-10">
               <img 
-                src="https://images.unsplash.com/photo-1556911220-e15224bbaf47?auto=format&fit=crop&q=80&w=800" 
+                src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800" 
                 alt="Commercial Office Cleaning" 
-                className="rounded-2xl shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500"
+                className="rounded-2xl shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500 w-full object-cover aspect-video"
               />
             </div>
           </div>

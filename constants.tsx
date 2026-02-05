@@ -55,7 +55,7 @@ export const SERVICES = [
     title: 'Disinfection Cleaning',
     description: 'Keep your space safe with clinical sterilization and bio-misting technology.',
     icon: <ShieldCheck className="w-8 h-8 text-blue-600" />,
-    imageUrl: 'https://images.unsplash.com/photo-1584622781564-1d9876a13d00?auto=format&fit=crop&q=80&w=800'
+    imageUrl: 'https://images.unsplash.com/photo-1584483766114-2cea6facdf57?auto=format&fit=crop&q=80&w=800'
   },
   {
     id: 'domestic-commercial',
