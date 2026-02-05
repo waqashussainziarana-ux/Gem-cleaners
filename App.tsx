@@ -9,6 +9,8 @@ import Gallery from './pages/Gallery.tsx';
 import Contact from './pages/Contact.tsx';
 import Footer from './components/Footer.tsx';
 import QuoteModal from './components/QuoteModal.tsx';
+import WhatsAppButton from './components/WhatsAppButton.tsx';
+import WhatsAppIcon from './components/WhatsAppIcon.tsx';
 
 // Define the modal context type for global quote modal management
 interface ModalContextType {
@@ -35,6 +37,8 @@ const App: React.FC = () => {
   const openQuoteModal = () => setIsQuoteModalOpen(true);
   const closeQuoteModal = () => setIsQuoteModalOpen(false);
 
+  const whatsappUrl = "https://wa.me/447756961307";
+
   return (
     <ModalContext.Provider value={{ openQuoteModal }}>
       <Router>
@@ -60,17 +64,26 @@ const App: React.FC = () => {
                   <Link to="/services" className="text-slate-600 hover:text-blue-600 font-bold transition-colors text-sm uppercase tracking-wider">Services</Link>
                   <Link to="/gallery" className="text-slate-600 hover:text-blue-600 font-bold transition-colors text-sm uppercase tracking-wider">Gallery</Link>
                   <Link to="/contact" className="text-slate-600 hover:text-blue-600 font-bold transition-colors text-sm uppercase tracking-wider">Contact</Link>
-                  <button
-                    onClick={openQuoteModal}
-                    className="bg-blue-600 text-white px-8 py-3.5 rounded-full font-black text-sm uppercase tracking-widest hover:bg-blue-700 transition-all shadow-xl shadow-blue-600/20 active:scale-95"
-                  >
-                    Free Quote
-                  </button>
+                  <div className="flex items-center space-x-4">
+                    <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-[#25D366] hover:text-[#128C7E] transition-colors font-bold">
+                      <WhatsAppIcon className="w-5 h-5" />
+                      <span className="text-sm">WhatsApp</span>
+                    </a>
+                    <button
+                      onClick={openQuoteModal}
+                      className="bg-blue-600 text-white px-8 py-3.5 rounded-full font-black text-sm uppercase tracking-widest hover:bg-blue-700 transition-all shadow-xl shadow-blue-600/20 active:scale-95"
+                    >
+                      Free Quote
+                    </button>
+                  </div>
                 </div>
 
                 {/* Mobile Actions */}
                 <div className="md:hidden flex items-center space-x-2">
-                  <a href="tel:+447756961307" className="p-2 text-blue-600 bg-blue-50 rounded-full">
+                  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="p-2.5 text-white bg-[#25D366] rounded-full">
+                    <WhatsAppIcon className="w-5 h-5" />
+                  </a>
+                  <a href="tel:+447756961307" className="p-2.5 text-blue-600 bg-blue-50 rounded-full">
                     <Phone className="w-5 h-5" />
                   </a>
                   <button 
@@ -92,7 +105,11 @@ const App: React.FC = () => {
                   <Link to="/services" onClick={() => setIsMobileMenuOpen(false)} className="block px-4 py-3 text-slate-900 font-bold text-lg hover:bg-slate-50 rounded-xl transition-colors">Services</Link>
                   <Link to="/gallery" onClick={() => setIsMobileMenuOpen(false)} className="block px-4 py-3 text-slate-900 font-bold text-lg hover:bg-slate-50 rounded-xl transition-colors">Gallery</Link>
                   <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)} className="block px-4 py-3 text-slate-900 font-bold text-lg hover:bg-slate-50 rounded-xl transition-colors">Contact</Link>
-                  <div className="pt-4">
+                  <div className="pt-4 space-y-3">
+                    <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center space-x-2 bg-[#25D366] text-white px-6 py-5 rounded-2xl font-black text-lg shadow-xl shadow-green-500/10">
+                      <WhatsAppIcon className="w-6 h-6" />
+                      <span>WhatsApp Chat</span>
+                    </a>
                     <button
                       onClick={() => { openQuoteModal(); setIsMobileMenuOpen(false); }}
                       className="w-full bg-blue-600 text-white px-6 py-5 rounded-2xl font-black text-lg shadow-xl shadow-blue-600/20"
@@ -117,6 +134,9 @@ const App: React.FC = () => {
           </main>
 
           <Footer />
+          
+          {/* Floating WhatsApp Button */}
+          <WhatsAppButton />
           
           {/* Quote Request Modal */}
           <QuoteModal isOpen={isQuoteModalOpen} onClose={closeQuoteModal} />

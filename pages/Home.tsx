@@ -1,12 +1,18 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Sparkles, ArrowRight, Star, Quote } from 'lucide-react';
+import { Sparkles, ArrowRight, Star, Quote, CheckCircle2, MapPin, Clock, ShieldCheck } from 'lucide-react';
 import { SERVICES, WHY_CHOOSE_US, TESTIMONIALS } from '../constants.tsx';
 import { useModal } from '../App.tsx';
 
 const Home: React.FC = () => {
   const { openQuoteModal } = useModal();
+
+  const steps = [
+    { title: 'Book Online', description: 'Fill out our quick quote form or chat via WhatsApp.', icon: <Clock className="w-6 h-6" /> },
+    { title: 'Get a Plan', description: 'We tailor a cleaning schedule that fits your lifestyle.', icon: <CheckCircle2 className="w-6 h-6" /> },
+    { title: 'Relax & Enjoy', description: 'Our professionals handle the rest while you enjoy your space.', icon: <Sparkles className="w-6 h-6" /> }
+  ];
 
   return (
     <div>
@@ -28,7 +34,7 @@ const Home: React.FC = () => {
               <span className="text-blue-300 text-xs font-bold uppercase tracking-widest">Slough's Trusted Experts</span>
             </div>
             <h1 className="text-5xl md:text-7xl font-bold leading-[1.1] mb-8">
-              Welcome to <span className="text-blue-500">Gem Cleaners</span>
+              Welcome to <span className="text-blue-600">Gem Cleaners</span>
             </h1>
             <p className="text-xl text-slate-300 mb-10 leading-relaxed font-medium">
               Professional cleaning that brings a fresh look to your home or business. From deep cleans to commercial maintenance, we make your space shine.
@@ -84,8 +90,30 @@ const Home: React.FC = () => {
         </div>
       </section>
 
+      {/* How it Works Section */}
+      <section className="py-24 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-slate-900 mb-4">Our Simple 3-Step Process</h2>
+            <p className="text-slate-500 max-w-2xl mx-auto">Getting your space cleaned shouldn't be complicated. We keep it straightforward and professional.</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-12">
+            {steps.map((step, i) => (
+              <div key={i} className="text-center relative group">
+                <div className="bg-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all duration-500">
+                  {step.icon}
+                </div>
+                <h3 className="text-xl font-bold mb-3">{step.title}</h3>
+                <p className="text-slate-500 font-medium">{step.description}</p>
+                {i < 2 && <ArrowRight className="hidden md:block absolute top-10 -right-6 w-8 h-8 text-slate-200" />}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Why Choose Us */}
-      <section className="py-24 bg-slate-50 overflow-hidden">
+      <section className="py-24 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <div className="relative">
@@ -141,6 +169,41 @@ const Home: React.FC = () => {
         </div>
       </section>
 
+      {/* Service Coverage Area */}
+      <section className="py-24 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white rounded-[3rem] p-12 border border-slate-100 flex flex-col md:flex-row items-center gap-12 shadow-sm">
+            <div className="flex-1">
+              <div className="flex items-center space-x-2 text-blue-600 mb-4">
+                <MapPin className="w-6 h-6" />
+                <span className="font-bold uppercase tracking-wider text-sm">Service Area</span>
+              </div>
+              <h2 className="text-3xl font-bold mb-6">Serving Slough & Surrounding Areas</h2>
+              <p className="text-slate-500 mb-8 font-medium">We are proud to serve Slough and neighboring communities with premium cleaning services. Not sure if we cover your area? Just ask!</p>
+              <div className="grid grid-cols-2 gap-4">
+                {['Slough Central', 'Windsor', 'Maidenhead', 'Burnham', 'Langley', 'Cippenham'].map((area) => (
+                  <div key={area} className="flex items-center space-x-2 text-slate-700">
+                    <ShieldCheck className="w-4 h-4 text-green-500" />
+                    <span className="font-semibold">{area}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="flex-1 w-full h-64 md:h-auto rounded-3xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.5042845662283!2d-0.6133292233816766!3d51.50397577181154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48766465f24f0c77%3A0xc39281a17586591!2s35%20Lansdowne%20Ave%2C%20Slough%20SL1%203SG%2C%20UK!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
+                width="100%" 
+                height="100%" 
+                style={{ border: 0 }} 
+                allowFullScreen 
+                loading="lazy" 
+                title="Gem Cleaners Area"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Testimonials Section */}
       <section className="py-24 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -178,7 +241,7 @@ const Home: React.FC = () => {
         </div>
         
         <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
-          <h2 className="text-5xl md:text-6xl font-bold text-white mb-8 leading-tight">Ready for a <span className="text-blue-500">Brighter</span> Space?</h2>
+          <h2 className="text-5xl md:text-6xl font-bold text-white mb-8 leading-tight">Ready for a <span className="text-blue-600">Brighter</span> Space?</h2>
           <p className="text-xl text-slate-400 mb-12 font-medium max-w-2xl mx-auto">
             Experience the difference with Slough's premier cleaning specialists. We're ready when you are.
           </p>

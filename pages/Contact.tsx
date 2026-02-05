@@ -1,6 +1,7 @@
 
 import React from 'react';
-import { Phone, Mail, MapPin, Clock, Send, Sparkles } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Send, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import WhatsAppIcon from '../components/WhatsAppIcon.tsx';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = React.useState({
@@ -15,7 +16,6 @@ const Contact: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
-    // Real-world implementation would send this to an API
     setTimeout(() => {
       setSubmitted(false);
       setFormData({ name: '', email: '', phone: '', message: '' });
@@ -26,6 +26,8 @@ const Contact: React.FC = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+
+  const whatsappUrl = "https://wa.me/447756961307";
 
   return (
     <div className="bg-slate-50 min-h-screen">
@@ -68,6 +70,16 @@ const Contact: React.FC = () => {
                   </div>
 
                   <div className="flex items-start space-x-5">
+                    <div className="bg-white p-4 rounded-2xl shadow-md text-[#25D366]">
+                      <WhatsAppIcon className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-slate-900 mb-1">WhatsApp Chat</h3>
+                      <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-[#25D366]">Available for instant messaging</a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start space-x-5">
                     <div className="bg-white p-4 rounded-2xl shadow-md text-blue-600">
                       <Mail className="w-6 h-6" />
                     </div>
@@ -90,12 +102,32 @@ const Contact: React.FC = () => {
                 </div>
               </div>
 
-              <div className="bg-blue-600 p-8 rounded-3xl text-white relative overflow-hidden">
-                <Sparkles className="absolute top-4 right-4 w-12 h-12 text-blue-400 opacity-20" />
-                <h3 className="text-2xl font-bold mb-4">Professional & Reliable</h3>
-                <p className="text-blue-100 leading-relaxed">
-                  Join our list of satisfied customers in the Slough area. We guarantee a spotless finish every time.
+              {/* Service Areas Card */}
+              <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
+                <div className="flex items-center space-x-3 mb-6">
+                  <ShieldCheck className="w-6 h-6 text-blue-600" />
+                  <h3 className="text-xl font-bold">Service Coverage</h3>
+                </div>
+                <div className="grid grid-cols-2 gap-y-3 gap-x-6">
+                  {['Slough Central', 'Windsor', 'Maidenhead', 'Burnham', 'Langley', 'Cippenham', 'Stoke Poges', 'Gerrards Cross'].map((area) => (
+                    <div key={area} className="flex items-center space-x-2 text-slate-600 text-sm">
+                      <CheckCircle2 className="w-4 h-4 text-green-500" />
+                      <span>{area}</span>
+                    </div>
+                  ))}
+                </div>
+                <p className="mt-6 text-xs text-slate-400 font-medium italic">Don't see your area? Contact us to see if we can help!</p>
+              </div>
+
+              <div className="bg-[#25D366] p-8 rounded-3xl text-white relative overflow-hidden group shadow-lg shadow-green-500/10">
+                <WhatsAppIcon className="absolute top-4 right-4 w-12 h-12 text-white opacity-20 group-hover:scale-125 transition-transform duration-500" />
+                <h3 className="text-2xl font-bold mb-4">Instant Support via WhatsApp</h3>
+                <p className="text-white/90 leading-relaxed mb-6">
+                  Need a quick answer or want to send photos of the space you need cleaned? Message us directly on WhatsApp for the fastest response.
                 </p>
+                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="inline-block bg-white text-[#25D366] font-bold px-6 py-3 rounded-xl hover:bg-slate-50 transition-colors">
+                  Open WhatsApp
+                </a>
               </div>
             </div>
 
@@ -176,7 +208,7 @@ const Contact: React.FC = () => {
       </section>
 
       {/* Map Embed Placeholder */}
-      <section className="h-96 w-full grayscale contrast-125 opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-700 overflow-hidden">
+      <section className="h-96 w-full grayscale contrast-125 opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-700 overflow-hidden border-t border-slate-200">
         <iframe 
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.5042845662283!2d-0.6133292233816766!3d51.50397577181154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48766465f24f0c77%3A0xc39281a17586591!2s35%20Lansdowne%20Ave%2C%20Slough%20SL1%203SG%2C%20UK!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
           width="100%" 
