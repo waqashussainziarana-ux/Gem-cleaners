@@ -11,6 +11,7 @@ import Footer from './components/Footer.tsx';
 import QuoteModal from './components/QuoteModal.tsx';
 import WhatsAppButton from './components/WhatsAppButton.tsx';
 import WhatsAppIcon from './components/WhatsAppIcon.tsx';
+import BackToTop from './components/BackToTop.tsx';
 
 // Scroll to top on route change
 const ScrollToTop = () => {
@@ -158,6 +159,7 @@ const App: React.FC = () => {
 
           <Footer />
           <WhatsAppButton />
+          <BackToTop />
           <QuoteModal isOpen={isQuoteModalOpen} onClose={closeQuoteModal} />
         </div>
       </Router>

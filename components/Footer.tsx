@@ -7,6 +7,7 @@ import { LOCATIONS, COUNTIES_COVERED, SERVICE_RADIUS } from '../constants.tsx';
 
 const Footer: React.FC = () => {
   const whatsappUrl = "https://wa.me/447756961307";
+  const facebookUrl = "https://Fb.com/gemcleaners";
 
   return (
     <footer className="bg-slate-900 text-slate-300 pt-32 pb-16 border-t border-white/5">
@@ -24,8 +25,12 @@ const Footer: React.FC = () => {
               The premium standard in residential and commercial cleaning across the South East. Vetted, insured, and perfectionist.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="bg-white/5 p-4 rounded-2xl hover:bg-blue-600 hover:text-white transition-all border border-white/5"><Facebook className="w-5 h-5" /></a>
-              <a href={whatsappUrl} className="bg-white/5 p-4 rounded-2xl hover:bg-[#25D366] hover:text-white transition-all border border-white/5"><WhatsAppIcon className="w-5 h-5" /></a>
+              <a href={facebookUrl} target="_blank" rel="noopener noreferrer" className="bg-white/5 p-4 rounded-2xl hover:bg-blue-600 hover:text-white transition-all border border-white/5">
+                <Facebook className="w-5 h-5" />
+              </a>
+              <a href={whatsappUrl} className="bg-white/5 p-4 rounded-2xl hover:bg-[#25D366] hover:text-white transition-all border border-white/5">
+                <WhatsAppIcon className="w-5 h-5" />
+              </a>
             </div>
             <div className="flex items-center space-x-3 text-blue-500 font-black uppercase text-[10px] tracking-[0.3em]">
               <Navigation className="w-4 h-4" />
