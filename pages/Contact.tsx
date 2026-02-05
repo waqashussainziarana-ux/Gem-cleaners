@@ -55,7 +55,7 @@ const Contact: React.FC = () => {
                     </div>
                     <div>
                       <h3 className="font-bold text-slate-900 mb-1">Our Location</h3>
-                      <p className="text-slate-600">35 Lansdowne Avenue, Slough SL1 3SG, UK</p>
+                      <p className="text-slate-600">90 Bath Rd, Slough SL1 3SY, United Kingdom</p>
                     </div>
                   </div>
                   
@@ -207,10 +207,10 @@ const Contact: React.FC = () => {
         </div>
       </section>
 
-      {/* Map Embed Placeholder */}
+      {/* Map Embed - Updated to 90 Bath Rd, Slough */}
       <section className="h-96 w-full grayscale contrast-125 opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-700 overflow-hidden border-t border-slate-200">
         <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.5042845662283!2d-0.6133292233816766!3d51.50397577181154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48766465f24f0c77%3A0xc39281a17586591!2s35%20Lansdowne%20Ave%2C%20Slough%20SL1%203SG%2C%20UK!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.743285601234!2d-0.6124564!3d51.5123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48766465f24f0c77%3A0x6a6a6a6a6a6a6a6a!2s90%20Bath%20Rd%2C%20Slough%20SL1%203SY%2C%20UK!5e0!3m2!1sen!2sus!4v1715000000000!5m2!1sen!2sus" 
           width="100%" 
           height="100%" 
           style={{ border: 0 }} 
