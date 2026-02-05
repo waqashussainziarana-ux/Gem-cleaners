@@ -1,9 +1,9 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Sparkles, Phone, Mail, MapPin, Facebook, ShieldCheck, ArrowRight } from 'lucide-react';
+import { Sparkles, Phone, Mail, MapPin, Facebook, ShieldCheck, ArrowRight, Navigation } from 'lucide-react';
 import WhatsAppIcon from './WhatsAppIcon.tsx';
-import { LOCATIONS } from '../constants.tsx';
+import { LOCATIONS, COUNTIES_COVERED, SERVICE_RADIUS } from '../constants.tsx';
 
 const Footer: React.FC = () => {
   const whatsappUrl = "https://wa.me/447756961307";
@@ -21,11 +21,15 @@ const Footer: React.FC = () => {
               <span className="text-3xl font-black text-white uppercase tracking-tighter">Gem<span className="text-blue-500">Cleaners</span></span>
             </Link>
             <p className="text-slate-500 font-medium leading-relaxed text-lg">
-              The premium standard in residential and commercial cleaning across Berkshire and the South East. Vetted, insured, and perfectionist.
+              The premium standard in residential and commercial cleaning across the South East. Vetted, insured, and perfectionist.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="bg-white/5 p-4 rounded-2xl hover:bg-blue-600 hover:text-white transition-all border border-white/5"><Facebook className="w-5 h-5" /></a>
               <a href={whatsappUrl} className="bg-white/5 p-4 rounded-2xl hover:bg-[#25D366] hover:text-white transition-all border border-white/5"><WhatsAppIcon className="w-5 h-5" /></a>
+            </div>
+            <div className="flex items-center space-x-3 text-blue-500 font-black uppercase text-[10px] tracking-[0.3em]">
+              <Navigation className="w-4 h-4" />
+              <span>{SERVICE_RADIUS} from Slough</span>
             </div>
           </div>
 
@@ -40,16 +44,28 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Service Areas Summary (Local Directory Style) */}
+          {/* Service Areas Summary */}
           <div className="lg:col-span-1">
-            <h4 className="text-white font-black uppercase text-xs tracking-[0.3em] mb-10">Local Coverage</h4>
+            <h4 className="text-white font-black uppercase text-xs tracking-[0.3em] mb-10">Counties Covered</h4>
             <div className="space-y-4">
-              {LOCATIONS.map((loc, idx) => (
-                <div key={idx} className="group">
-                  <div className="text-slate-500 text-[10px] font-black uppercase tracking-[0.2em] mb-2">{loc.region}</div>
-                  <div className="text-xs font-bold leading-relaxed">{loc.areas.join(', ')}</div>
+              <div className="flex flex-wrap gap-2">
+                {COUNTIES_COVERED.map((county, idx) => (
+                  <span key={idx} className="bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg text-xs font-black uppercase tracking-widest text-blue-400">
+                    {county}
+                  </span>
+                ))}
+              </div>
+              <div className="pt-6">
+                <h5 className="text-white/50 text-[10px] font-black uppercase tracking-[0.2em] mb-4">Core Regions</h5>
+                <div className="space-y-4">
+                  {LOCATIONS.map((loc, idx) => (
+                    <div key={idx} className="group">
+                      <div className="text-slate-500 text-[9px] font-black uppercase tracking-[0.2em] mb-1">{loc.region}</div>
+                      <div className="text-[11px] font-bold leading-relaxed">{loc.areas.slice(0, 3).join(', ')}...</div>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
             </div>
           </div>
 
@@ -59,7 +75,7 @@ const Footer: React.FC = () => {
             <ul className="space-y-8">
               <li className="flex items-start space-x-4">
                 <MapPin className="w-6 h-6 text-blue-500 shrink-0" />
-                <span className="text-sm font-bold leading-relaxed text-slate-400">90 Bath Rd,<br />Slough SL1 3SY, UK</span>
+                <span className="text-sm font-bold leading-relaxed text-slate-400">90 Bath Rd,<br />Slough SL1 3SY, United Kingdom</span>
               </li>
               <li className="flex items-center space-x-4">
                 <Phone className="w-6 h-6 text-blue-500 shrink-0" />
@@ -79,8 +95,8 @@ const Footer: React.FC = () => {
              <div className="flex items-center space-x-2"><ShieldCheck className="w-4 h-4 text-green-500" /> <span>DBS Vetted Staff</span></div>
              <div className="flex items-center space-x-2"><ShieldCheck className="w-4 h-4 text-green-500" /> <span>Public Liability £5m</span></div>
           </div>
-          <div className="text-[11px] font-black uppercase tracking-[0.3em] text-slate-600">
-            © {new Date().getFullYear()} Gem Cleaners Slough. Professional Cleaning Excellence.
+          <div className="text-[11px] font-black uppercase tracking-[0.3em] text-slate-600 text-center md:text-right">
+            © {new Date().getFullYear()} Gem Cleaners Slough. Covering Berkshire, Buckinghamshire & Oxfordshire.
           </div>
         </div>
       </div>

@@ -25,6 +25,9 @@ import {
 } from 'lucide-react';
 import { Testimonial, Service } from './types.ts';
 
+export const SERVICE_RADIUS = "40 Mile Radius";
+export const COUNTIES_COVERED = ["Berkshire", "Buckinghamshire", "Oxfordshire"];
+
 export const LOCATIONS = [
   { region: 'Slough (Core)', areas: ['Central Slough', 'Cippenham', 'Chalvey', 'Manor Park', 'Upton', 'Salt Hill'] },
   { region: 'East Slough & S. Bucks', areas: ['Langley', 'Colnbrook', 'Dachet', 'Iver', 'Farnham Royal', 'Stoke Poges'] },
